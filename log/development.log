@@ -7,3 +7,9 @@ ActionController::RoutingError (No route matches "/agents"):
   
 
 Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-25 23:38:31 +0100
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 33ms (Views: 18.3ms | ActiveRecord: 0.0ms)
