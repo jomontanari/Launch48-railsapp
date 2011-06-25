@@ -13,3 +13,302 @@ Started GET "/" for 127.0.0.1 at 2011-06-25 23:38:31 +0100
   Processing by HomeController#index as HTML
 Rendered home/index.html.erb within layouts/application (11.6ms)
 Completed 200 OK in 33ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (3.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (16.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateAgents (20110625224104)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "agents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code_name" varchar(255), "bio" varchar(255), "position" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110625224104')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("agents")
+
+
+Started POST "/agents" for 127.0.0.1 at 2011-06-25 23:41:28 +0100
+  Processing by AgentsController#create as 
+  Parameters: {"code_name"=>"jo", "bio"=>"", "position"=>""}
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "agents" ("code_name", "bio", "position", "created_at", "updated_at") VALUES (NULL, NULL, NULL, '2011-06-25 22:41:29.039040', '2011-06-25 22:41:29.039040')
+Redirected to http://localhost:3000/agents/1
+Completed 302 Found in 350ms
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:41:29 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (1.6ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 60ms (Views: 18.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/agents/new" for 127.0.0.1 at 2011-06-25 23:41:38 +0100
+  Processing by AgentsController#new as HTML
+Rendered agents/_form.html.erb (252.8ms)
+Rendered agents/new.html.erb within layouts/application (270.6ms)
+Completed 200 OK in 281ms (Views: 273.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:41:44 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (0.7ms)[0m  SELECT "agents".* FROM "agents"
+Rendered agents/index.html.erb within layouts/application (34.6ms)
+Completed 200 OK in 44ms (Views: 37.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/agents.xml" for 127.0.0.1 at 2011-06-25 23:43:43 +0100
+  Processing by AgentsController#index as XML
+  [1m[36mAgent Load (0.9ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Completed 200 OK in 324ms (Views: 317.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/agents" for 127.0.0.1 at 2011-06-25 23:46:34 +0100
+  Processing by AgentsController#create as 
+  Parameters: {"code-name"=>"jo", "bio"=>"", "position"=>""}
+  [1m[35mAREL (7.8ms)[0m  INSERT INTO "agents" ("code_name", "bio", "position", "created_at", "updated_at") VALUES (NULL, NULL, NULL, '2011-06-25 22:46:34.997361', '2011-06-25 22:46:34.997361')
+Redirected to http://localhost:3000/agents/2
+Completed 302 Found in 72ms
+
+
+Started GET "/agents.xml" for 127.0.0.1 at 2011-06-25 23:46:40 +0100
+  Processing by AgentsController#index as XML
+  [1m[36mAgent Load (1.1ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Completed 200 OK in 20ms (Views: 11.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/agents" for 127.0.0.1 at 2011-06-25 23:47:11 +0100
+  Processing by AgentsController#create as 
+  Parameters: {"codename"=>"jo", "bio"=>"highly trained", "position"=>""}
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "agents" ("code_name", "bio", "position", "created_at", "updated_at") VALUES (NULL, NULL, NULL, '2011-06-25 22:47:11.544794', '2011-06-25 22:47:11.544794')
+Redirected to http://localhost:3000/agents/3
+Completed 302 Found in 49ms
+
+
+Started GET "/agents.xml" for 127.0.0.1 at 2011-06-25 23:47:15 +0100
+  Processing by AgentsController#index as XML
+  [1m[36mAgent Load (1.1ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Completed 200 OK in 18ms (Views: 11.0ms | ActiveRecord: 1.1ms)
+
+
+Started OPTIONS "/agents" for 127.0.0.1 at 2011-06-25 23:48:54 +0100
+
+ActionController::RoutingError (No route matches "/agents"):
+  
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started OPTIONS "/agents.xml" for 127.0.0.1 at 2011-06-25 23:49:22 +0100
+
+ActionController::RoutingError (No route matches "/agents.xml"):
+  
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/agents.xml" for 127.0.0.1 at 2011-06-25 23:49:59 +0100
+  Processing by AgentsController#index as XML
+  [1m[35mAgent Load (1.7ms)[0m  SELECT "agents".* FROM "agents"
+Completed 200 OK in 49ms (Views: 39.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:50:11 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (1.0ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 37ms (Views: 31.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/agents/new" for 127.0.0.1 at 2011-06-25 23:50:14 +0100
+  Processing by AgentsController#new as HTML
+Rendered agents/_form.html.erb (33.3ms)
+Rendered agents/new.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 48ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/agents" for 127.0.0.1 at 2011-06-25 23:51:02 +0100
+
+ActionController::RoutingError (No route matches "/agents"):
+  
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/agents" for 127.0.0.1 at 2011-06-25 23:51:15 +0100
+  Processing by AgentsController#create as 
+  Parameters: {"agent_code_name"=>"jo", "agent_bio"=>"highly trained"}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "agents" ("code_name", "bio", "position", "created_at", "updated_at") VALUES (NULL, NULL, NULL, '2011-06-25 22:51:15.512728', '2011-06-25 22:51:15.512728')
+Redirected to http://localhost:3000/agents/4
+Completed 302 Found in 26ms
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:51:27 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (1.4ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (39.4ms)
+Completed 200 OK in 83ms (Views: 42.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/agents/new" for 127.0.0.1 at 2011-06-25 23:51:50 +0100
+  Processing by AgentsController#new as HTML
+Rendered agents/_form.html.erb (9.2ms)
+Rendered agents/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 23ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/agents" for 127.0.0.1 at 2011-06-25 23:52:01 +0100
+  Processing by AgentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nd4TALMgnxGfQ6eE5sYanAblVJMDe6KywJvSv8bTtlU=", "agent"=>{"code_name"=>"jo", "bio"=>"bla", "position"=>""}, "commit"=>"Create Agent"}
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "agents" ("code_name", "bio", "position", "created_at", "updated_at") VALUES ('jo', 'bla', '', '2011-06-25 22:52:01.051887', '2011-06-25 22:52:01.051887')
+Redirected to http://localhost:3000/agents/5
+Completed 302 Found in 19ms
+
+
+Started GET "/agents/5" for 127.0.0.1 at 2011-06-25 23:52:01 +0100
+  Processing by AgentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAgent Load (0.1ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 5 LIMIT 1[0m
+Rendered agents/show.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 43ms (Views: 36.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:52:48 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (1.4ms)[0m  SELECT "agents".* FROM "agents"
+Rendered agents/index.html.erb within layouts/application (44.2ms)
+Completed 200 OK in 54ms (Views: 48.0ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/agents/1" for 127.0.0.1 at 2011-06-25 23:52:53 +0100
+  Processing by AgentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nd4TALMgnxGfQ6eE5sYanAblVJMDe6KywJvSv8bTtlU=", "id"=>"1"}
+  [1m[36mAgent Load (0.4ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  DELETE FROM "agents" WHERE "agents"."id" = 1
+Redirected to http://localhost:3000/agents
+Completed 302 Found in 17ms
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:52:53 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (1.1ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 20ms (Views: 14.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/agents/2" for 127.0.0.1 at 2011-06-25 23:53:01 +0100
+  Processing by AgentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nd4TALMgnxGfQ6eE5sYanAblVJMDe6KywJvSv8bTtlU=", "id"=>"2"}
+  [1m[35mAgent Load (0.4ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "agents" WHERE "agents"."id" = 2[0m
+Redirected to http://localhost:3000/agents
+Completed 302 Found in 16ms
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:53:01 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (0.8ms)[0m  SELECT "agents".* FROM "agents"
+Rendered agents/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 19ms (Views: 13.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/agents/3" for 127.0.0.1 at 2011-06-25 23:53:08 +0100
+  Processing by AgentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nd4TALMgnxGfQ6eE5sYanAblVJMDe6KywJvSv8bTtlU=", "id"=>"3"}
+  [1m[36mAgent Load (0.4ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 3 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "agents" WHERE "agents"."id" = 3
+Redirected to http://localhost:3000/agents
+Completed 302 Found in 19ms
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:53:08 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (0.6ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 30ms (Views: 23.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/agents/4" for 127.0.0.1 at 2011-06-25 23:53:12 +0100
+  Processing by AgentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nd4TALMgnxGfQ6eE5sYanAblVJMDe6KywJvSv8bTtlU=", "id"=>"4"}
+  [1m[35mAgent Load (0.6ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 4 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mDELETE FROM "agents" WHERE "agents"."id" = 4[0m
+Redirected to http://localhost:3000/agents
+Completed 302 Found in 20ms
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:53:12 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (0.3ms)[0m  SELECT "agents".* FROM "agents"
+Rendered agents/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/agents/new" for 127.0.0.1 at 2011-06-25 23:53:18 +0100
+  Processing by AgentsController#new as HTML
+Rendered agents/_form.html.erb (9.0ms)
+Rendered agents/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 25ms (Views: 17.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:53:20 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (0.4ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 24ms (Views: 16.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/agents" for 127.0.0.1 at 2011-06-25 23:53:39 +0100
+  Processing by AgentsController#create as 
+  Parameters: {"agent_code_name"=>"jo", "agent_bio"=>"highly trained"}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "agents" ("code_name", "bio", "position", "created_at", "updated_at") VALUES (NULL, NULL, NULL, '2011-06-25 22:53:39.637665', '2011-06-25 22:53:39.637665')
+Redirected to http://localhost:3000/agents/6
+Completed 302 Found in 20ms
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:53:53 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (0.6ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 24ms (Views: 18.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/agents" for 127.0.0.1 at 2011-06-25 23:54:16 +0100
+  Processing by AgentsController#create as 
+  Parameters: {"agent"=>{"code_name"=>"richard", "bio"=>"highly trained"}}
+  [1m[35mAREL (0.7ms)[0m  INSERT INTO "agents" ("code_name", "bio", "position", "created_at", "updated_at") VALUES ('richard', 'highly trained', NULL, '2011-06-25 22:54:16.827015', '2011-06-25 22:54:16.827015')
+Redirected to http://localhost:3000/agents/7
+Completed 302 Found in 21ms
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-25 23:54:17 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (0.8ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 47ms (Views: 41.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/agents.json" for 127.0.0.1 at 2011-06-25 23:55:27 +0100
+  Processing by AgentsController#index as JSON
+  [1m[35mAgent Load (11.5ms)[0m  SELECT "agents".* FROM "agents"
+Completed 200 OK in 79ms (Views: 23.9ms | ActiveRecord: 11.5ms)
