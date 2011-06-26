@@ -5,7 +5,7 @@ class AgentsController < ApplicationController
     @agents = Agent.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :json => @agents, :callback => params[:callback] }
       format.xml  { render :xml => @agents }
       format.json { render :json => @agents }
     end
@@ -63,7 +63,7 @@ class AgentsController < ApplicationController
 
     respond_to do |format|
       if @agent.update_attributes(params[:agent])
-        format.html { Agent.find(params[:id]) }
+        format.html { render :location => @agent, :status => :ok }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -18,10 +18,19 @@
 
          function doJson() {
             $.ajax({
+                url: "http://localhost:3000/agents?callback=?",
                 dataType: 'json',
-                url: "/agents",
+                success: loadAgents
+            });
+        }
+
+
+        function uploadMyPosition(position) {
+            positionText = "{lat:" + position.coords.latitude + ",lng:" + position.coords.longitude + "}";
+            $.ajax({
+                url: "http://espionage.heroku.com/agents/" + agent_id,
                 type: "POST",
-                data: "agent[code_name]=abc",                
+                data: "_method=put&agent[position]=" + positionText,
                 complete: function(jqXHR, textStatus) {
                     alert(textStatus);
                     console.log(jqXHR)
@@ -29,9 +38,13 @@
             });
         }
 
+        function loadAgents(data) {
+            alert("hello")
+            console.log(data)
+        }
 
     </script>
-<a href="javascript:doAjax()">Do Ajax</a>
+<a href="javascript:uploadMyPosition({coords :{latitude: 10, longitude: 10}})">Do Upload</a>
     <br /><br/>
 <a href="javascript:doJson()">Do Json</a>
 

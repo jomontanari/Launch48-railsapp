@@ -1900,3 +1900,293 @@ Started GET "/agents/find?code_name=jo&callback=jQuery16104705146817001543_13090
   [1m[35mAgent Load (0.5ms)[0m  SELECT id, code_name FROM agents WHERE code_name = 'jo'
   [1m[36mAgent Load (0.5ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 26 LIMIT 1[0m
 Completed 200 OK in 66ms (Views: 7.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/agents/10/edit" for 127.0.0.1 at 2011-06-26 12:58:41 +0100
+  Processing by AgentsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAgent Load (0.2ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 10 LIMIT 1
+Completed 404 Not Found in 12ms
+
+ActiveRecord::RecordNotFound (Couldn't find Agent with ID=10):
+  app/controllers/agents_controller.rb:38:in `edit'
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.2ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 12:58:48 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (3.4ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (66.4ms)
+Completed 200 OK in 93ms (Views: 80.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/agents/27/edit" for 127.0.0.1 at 2011-06-26 12:58:50 +0100
+  Processing by AgentsController#edit as HTML
+  Parameters: {"id"=>"27"}
+  [1m[35mAgent Load (0.6ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 27 LIMIT 1
+Rendered agents/_form.html.erb (14.8ms)
+Rendered agents/edit.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 57ms (Views: 43.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/agents/27" for 127.0.0.1 at 2011-06-26 12:58:56 +0100
+  Processing by AgentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UhScCzeILz+zzmnmJZEyrXq1WqlEdDYrABNjtzgBk6o=", "agent"=>{"code_name"=>"scubadiva", "bio"=>"test", "position"=>"test"}, "commit"=>"Update Agent", "id"=>"27"}
+  [1m[36mAgent Load (0.7ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 27 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "agents" WHERE ("agents"."code_name" = 'scubadiva') AND ("agents".id <> 27) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "agents" SET "bio" = 'test', "position" = 'test', "updated_at" = '2011-06-26 11:58:56.272588' WHERE "agents"."id" = 27[0m
+  [1m[35mAgent Load (0.2ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 27 LIMIT 1
+Completed 500 Internal Server Error in 32ms
+
+ActionView::MissingTemplate (Missing template agents/update with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths "/Users/jocranford/projects/spyapp/app/views"):
+  
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.0ms)
+
+
+Started GET "/agents/10" for 127.0.0.1 at 2011-06-26 13:04:43 +0100
+
+SyntaxError (/Users/jocranford/projects/spyapp/app/controllers/agents_controller.rb:66: syntax error, unexpected tASSOC, expecting '}'
+        format.html { :location => @agent, :status => :ok }
+                                  ^
+/Users/jocranford/projects/spyapp/app/controllers/agents_controller.rb:66: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+        format.html { :location => @agent, :status => :ok }
+                                                     ^):
+  
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.3ms)
+
+
+Started GET "/agents/10" for 127.0.0.1 at 2011-06-26 13:05:01 +0100
+  Processing by AgentsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAgent Load (0.2ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 10 LIMIT 1[0m
+Completed 404 Not Found in 12ms
+
+ActiveRecord::RecordNotFound (Couldn't find Agent with ID=10):
+  app/controllers/agents_controller.rb:17:in `show'
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.5ms)
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.4ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 13:05:04 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (2.8ms)[0m  SELECT "agents".* FROM "agents"
+Rendered agents/index.html.erb within layouts/application (47.0ms)
+Completed 200 OK in 63ms (Views: 51.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/agents/12" for 127.0.0.1 at 2011-06-26 13:05:08 +0100
+  Processing by AgentsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mAgent Load (0.3ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 12 LIMIT 1[0m
+Completed 200 OK in 59ms (Views: 47.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/agents/12/edit" for 127.0.0.1 at 2011-06-26 13:05:16 +0100
+  Processing by AgentsController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mAgent Load (0.2ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 12 LIMIT 1
+Rendered agents/_form.html.erb (14.8ms)
+Rendered agents/edit.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 55ms (Views: 43.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/agents/12" for 127.0.0.1 at 2011-06-26 13:05:19 +0100
+  Processing by AgentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zOT2ouZTk6sh1x2jwuL9tKSFMkKXzPNA7Lf5I7t7fpw=", "agent"=>{"code_name"=>"fffddss", "bio"=>"", "position"=>"test"}, "commit"=>"Update Agent", "id"=>"12"}
+  [1m[36mAgent Load (0.2ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 12 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "agents" WHERE ("agents"."code_name" = 'fffddss') AND ("agents".id <> 12) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "agents" SET "position" = 'test', "updated_at" = '2011-06-26 12:05:19.803006' WHERE "agents"."id" = 12[0m
+Completed 500 Internal Server Error in 37ms
+
+ActionView::MissingTemplate (Missing template agents/update with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths "/Users/jocranford/projects/spyapp/app/views"):
+  app/controllers/agents_controller.rb:66:in `block (2 levels) in update'
+  app/controllers/agents_controller.rb:64:in `update'
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started POST "/agents/12" for 127.0.0.1 at 2011-06-26 13:05:37 +0100
+  Processing by AgentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zOT2ouZTk6sh1x2jwuL9tKSFMkKXzPNA7Lf5I7t7fpw=", "agent"=>{"code_name"=>"fffddss", "bio"=>"", "position"=>"test"}, "commit"=>"Update Agent", "id"=>"12"}
+  [1m[35mAgent Load (0.3ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 12 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "agents" WHERE ("agents"."code_name" = 'fffddss') AND ("agents".id <> 12) LIMIT 1[0m
+Rendered agents/update.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 34ms (Views: 8.4ms | ActiveRecord: 0.5ms)
+
+
+Started OPTIONS "/agents/11" for 127.0.0.1 at 2011-06-26 13:06:09 +0100
+
+ActionController::RoutingError (No route matches "/agents/11"):
+  
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 13:06:33 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (3.4ms)[0m  SELECT "agents".* FROM "agents"
+Rendered agents/index.html.erb within layouts/application (61.8ms)
+Completed 200 OK in 79ms (Views: 66.2ms | ActiveRecord: 3.4ms)
+
+
+Started OPTIONS "/agents/12" for 127.0.0.1 at 2011-06-26 13:06:50 +0100
+
+ActionController::RoutingError (No route matches "/agents/12"):
+  
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 13:07:00 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (2.7ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 43ms (Views: 30.6ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/agents/27" for 127.0.0.1 at 2011-06-26 13:07:06 +0100
+  Processing by AgentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UhScCzeILz+zzmnmJZEyrXq1WqlEdDYrABNjtzgBk6o=", "id"=>"27"}
+  [1m[35mAgent Load (0.2ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 27 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mDELETE FROM "agents" WHERE "agents"."id" = 27[0m
+Redirected to http://localhost:3000/agents
+Completed 302 Found in 23ms
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 13:07:06 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (2.4ms)[0m  SELECT "agents".* FROM "agents"
+Rendered agents/index.html.erb within layouts/application (62.3ms)
+Completed 200 OK in 79ms (Views: 66.8ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/agents/12" for 127.0.0.1 at 2011-06-26 13:07:09 +0100
+  Processing by AgentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UhScCzeILz+zzmnmJZEyrXq1WqlEdDYrABNjtzgBk6o=", "id"=>"12"}
+  [1m[36mAgent Load (0.2ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 12 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  DELETE FROM "agents" WHERE "agents"."id" = 12
+Redirected to http://localhost:3000/agents
+Completed 302 Found in 25ms
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 13:07:09 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (2.7ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 79ms (Views: 67.4ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/agents/12" for 127.0.0.1 at 2011-06-26 13:07:52 +0100
+
+ActionController::RoutingError (No route matches "/agents/12"):
+  
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 13:08:05 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (3.1ms)[0m  SELECT "agents".* FROM "agents"
+Rendered agents/index.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 42ms (Views: 29.5ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/agents/13" for 127.0.0.1 at 2011-06-26 13:08:27 +0100
+
+ActionController::RoutingError (No route matches "/agents/13"):
+  
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started POST "/agents/27" for 127.0.0.1 at 2011-06-26 13:08:38 +0100
+  Processing by AgentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UhScCzeILz+zzmnmJZEyrXq1WqlEdDYrABNjtzgBk6o=", "agent"=>{"code_name"=>"scubadiva", "bio"=>"test", "position"=>"test"}, "commit"=>"Update Agent", "id"=>"27"}
+  [1m[36mAgent Load (0.2ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 27 LIMIT 1[0m
+Completed 404 Not Found in 13ms
+
+ActiveRecord::RecordNotFound (Couldn't find Agent with ID=27):
+  app/controllers/agents_controller.rb:62:in `update'
+
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.9ms)
+Rendered /Users/jocranford/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.1ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 13:08:44 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (2.9ms)[0m  SELECT "agents".* FROM "agents"
+Rendered agents/index.html.erb within layouts/application (67.3ms)
+Completed 200 OK in 109ms (Views: 96.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/agents/13/edit" for 127.0.0.1 at 2011-06-26 13:08:57 +0100
+  Processing by AgentsController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mAgent Load (0.3ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 13 LIMIT 1[0m
+Rendered agents/_form.html.erb (14.4ms)
+Rendered agents/edit.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 51ms (Views: 37.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/agents/13" for 127.0.0.1 at 2011-06-26 13:09:02 +0100
+  Processing by AgentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UhScCzeILz+zzmnmJZEyrXq1WqlEdDYrABNjtzgBk6o=", "agent"=>{"code_name"=>"fffddssss", "bio"=>"", "position"=>"test"}, "commit"=>"Update Agent", "id"=>"13"}
+  [1m[35mAgent Load (0.3ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 13 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT 1 FROM "agents" WHERE ("agents"."code_name" = 'fffddssss') AND ("agents".id <> 13) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "agents" SET "position" = 'test', "updated_at" = '2011-06-26 12:09:02.472432' WHERE "agents"."id" = 13
+Rendered agents/update.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 37ms (Views: 8.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/agents/13" for 127.0.0.1 at 2011-06-26 13:10:17 +0100
+  Processing by AgentsController#update as HTML
+  Parameters: {"agent"=>{"position"=>"lat=10"}, "amp"=>nil, "lng"=>"10", "id"=>"13"}
+  [1m[36mAgent Load (0.2ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 13 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "agents" WHERE ("agents"."code_name" = 'fffddssss') AND ("agents".id <> 13) LIMIT 1
+  [1m[36mAREL (4.7ms)[0m  [1mUPDATE "agents" SET "position" = 'lat=10', "updated_at" = '2011-06-26 12:10:17.354894' WHERE "agents"."id" = 13[0m
+Rendered agents/update.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 90ms (Views: 26.6ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 13:10:29 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (2.7ms)[0m  SELECT "agents".* FROM "agents"
+Rendered agents/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 36ms (Views: 25.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/agents/13" for 127.0.0.1 at 2011-06-26 13:10:34 +0100
+  Processing by AgentsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mAgent Load (0.3ms)[0m  [1mSELECT "agents".* FROM "agents" WHERE "agents"."id" = 13 LIMIT 1[0m
+Completed 200 OK in 67ms (Views: 53.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 13:18:39 +0100
+  Processing by AgentsController#index as HTML
+  [1m[35mAgent Load (2.6ms)[0m  SELECT "agents".* FROM "agents"
+Completed 200 OK in 26ms (Views: 14.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/agents?callback=jQuery1610878597823479969_1309090736630&_=1309090738348" for 127.0.0.1 at 2011-06-26 13:18:58 +0100
+  Processing by AgentsController#index as 
+  Parameters: {"callback"=>"jQuery1610878597823479969_1309090736630", "_"=>"1309090738348"}
+  [1m[36mAgent Load (3.0ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Completed 200 OK in 63ms (Views: 51.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/agents?callback=jQuery16105605117933680934_1309090757653&_=1309090759893" for 127.0.0.1 at 2011-06-26 13:19:19 +0100
+  Processing by AgentsController#index as 
+  Parameters: {"callback"=>"jQuery16105605117933680934_1309090757653", "_"=>"1309090759893"}
+  [1m[35mAgent Load (2.8ms)[0m  SELECT "agents".* FROM "agents"
+Completed 200 OK in 28ms (Views: 15.8ms | ActiveRecord: 2.8ms)

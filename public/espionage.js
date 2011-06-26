@@ -34,14 +34,24 @@ function loadMap() {
     }
 }
 
-
+function uploadMyPosition(position) {
+    positionText = "{lat:" + position.coords.latitude + ",lng:" + position.coords.longitude + "}";
+    $.ajax({
+        url: "http://espionage.heroku.com/agents/" + agent_id,
+        type: "POST",
+        data: "_method=put&agent[position]=" + positionText,
+        complete: function(jqXHR, textStatus) {
+            alert(textStatus);
+            console.log(jqXHR)
+        }
+    });
+}
 
 function getAgentLocations() {
     $.ajax({
-        url: "http://scubaholic.co.uk/agents.php?callback=?",
+        url: "http://espionage.heroku.com/agents.json?callback=?",
         dataType: 'json',
-        success: loadAgents,
-        error: function() {alert("Error")}
+        success: loadAgents
     });
 }
 
