@@ -110,7 +110,9 @@
     <script type="text/javascript">
 
     $('#streetmap').live("pageshow", function() {
-        loadMap();
+        if (checkForAgentID()) {
+            loadMap();
+        }
     });
 
     </script>

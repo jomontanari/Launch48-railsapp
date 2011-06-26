@@ -32,6 +32,15 @@ function loadMap() {
     }
 }
 
+function checkForAgentID() {
+    if (agent_id == null) {
+        $.mobile.changePage("login")
+        return false;
+    } else {
+        return true;
+    }
+}
+
 function uploadMyPosition(position) {
     positionText = "lat:" + position.coords.latitude + ",lng:" + position.coords.longitude;
     $.ajax({
