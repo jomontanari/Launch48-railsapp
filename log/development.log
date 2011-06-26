@@ -1791,3 +1791,61 @@ Started GET "/agents/find?code_name=jojo&callback=jQuery16106117880590252802_130
   [1m[36mAgent Load (0.6ms)[0m  [1mSELECT id, code_name FROM agents WHERE code_name = 'jojo'[0m
   [1m[35mAgent Load (0.5ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 25 LIMIT 1
 Completed 200 OK in 29ms (Views: 6.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/agents" for 127.0.0.1 at 2011-06-26 12:05:49 +0100
+  Processing by AgentsController#create as 
+  Parameters: {"agent"=>{"code_name"=>"jo"}}
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "agents" WHERE ("agents"."code_name" = 'jo') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "agents" ("code_name", "bio", "position", "created_at", "updated_at") VALUES ('jo', NULL, NULL, '2011-06-26 11:05:50.019913', '2011-06-26 11:05:50.019913')
+Rendered agents/create.html.erb within layouts/application (2.4ms)
+Completed 201 Created in 36ms (Views: 7.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/agents/find?code_name=jo&callback=jQuery16105821721094134216_1309086344998&_=1309086349914" for 127.0.0.1 at 2011-06-26 12:05:50 +0100
+  Processing by AgentsController#find as 
+  Parameters: {"code_name"=>"jo", "callback"=>"jQuery16105821721094134216_1309086344998", "_"=>"1309086349914"}
+  [1m[36mAgent Load (0.4ms)[0m  [1mSELECT id, code_name FROM agents WHERE code_name = 'jo'[0m
+  [1m[35mAgent Load (0.6ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 26 LIMIT 1
+Completed 200 OK in 28ms (Views: 6.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/agents" for 127.0.0.1 at 2011-06-26 12:11:20 +0100
+  Processing by AgentsController#create as 
+  Parameters: {"agent"=>{"code_name"=>"scubadiva"}}
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "agents" WHERE ("agents"."code_name" = 'scubadiva') LIMIT 1[0m
+  [1m[35mAREL (6.2ms)[0m  INSERT INTO "agents" ("code_name", "bio", "position", "created_at", "updated_at") VALUES ('scubadiva', NULL, NULL, '2011-06-26 11:11:20.482131', '2011-06-26 11:11:20.482131')
+Rendered agents/create.html.erb within layouts/application (13.9ms)
+Completed 201 Created in 87ms (Views: 18.4ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/agents/find?code_name=scubadiva&callback=jQuery16105507440154864132_1309086674954&_=1309086680378" for 127.0.0.1 at 2011-06-26 12:11:20 +0100
+  Processing by AgentsController#find as 
+  Parameters: {"code_name"=>"scubadiva", "callback"=>"jQuery16105507440154864132_1309086674954", "_"=>"1309086680378"}
+  [1m[36mAgent Load (0.5ms)[0m  [1mSELECT id, code_name FROM agents WHERE code_name = 'scubadiva'[0m
+  [1m[35mAgent Load (0.5ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 27 LIMIT 1
+Completed 200 OK in 27ms (Views: 6.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2011-06-26 12:11:33 +0100
+  Processing by AgentsController#index as HTML
+  [1m[36mAgent Load (41.5ms)[0m  [1mSELECT "agents".* FROM "agents"[0m
+Rendered agents/index.html.erb within layouts/application (26.9ms)
+Completed 200 OK in 82ms (Views: 31.8ms | ActiveRecord: 41.5ms)
+
+
+Started POST "/agents" for 127.0.0.1 at 2011-06-26 12:21:42 +0100
+  Processing by AgentsController#create as 
+  Parameters: {"agent"=>{"code_name"=>"jo"}}
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "agents" WHERE ("agents"."code_name" = 'jo') LIMIT 1
+Rendered agents/_form.html.erb (8.0ms)
+Rendered agents/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 42ms (Views: 17.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/agents/find?code_name=jo&callback=jQuery16103168500009788817_1309087295543&_=1309087302346" for 127.0.0.1 at 2011-06-26 12:21:42 +0100
+  Processing by AgentsController#find as 
+  Parameters: {"code_name"=>"jo", "callback"=>"jQuery16103168500009788817_1309087295543", "_"=>"1309087302346"}
+  [1m[36mAgent Load (0.5ms)[0m  [1mSELECT id, code_name FROM agents WHERE code_name = 'jo'[0m
+  [1m[35mAgent Load (0.5ms)[0m  SELECT "agents".* FROM "agents" WHERE "agents"."id" = 26 LIMIT 1
+Completed 200 OK in 27ms (Views: 6.2ms | ActiveRecord: 1.0ms)

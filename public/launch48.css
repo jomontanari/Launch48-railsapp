@@ -28,7 +28,8 @@ color:#000;
 float:left;
 position:relative;
 width:320px;
-padding:10px;
+height:450px;
+padding:0px;
 }
 
 #gmap-4{
@@ -70,7 +71,7 @@ display:none;
 }
 
 .popup {
-  background: url("images/pow.png") no-repeat scroll 0 -9pt transparent;
+  background: url("images/pow.png") no-repeat scroll -3pt -15pt transparent;
   font-family: 'Permanent Marker',arial,serif;
   left: 0pt;
   position: absolute;
@@ -83,21 +84,54 @@ display:none;
   height:400px;
   line-height:210pt;
   text-align:center;
-  width:320px;
+  width:300px;
   margin-left:20px;
 }
 
 #close{
   position:absolute;
-  top:10px;
+  top:176px;
+  right:97px;
 }
 
 .weapon-select form .guns radio{
 float:left;
 }
 
+.weapon-select .guns #radio2{
+  background:url("images/grenade.png") no-repeat scroll 0 0;
+}
+
 #icon{
   text-indent:-3000px;
   float:left;
 }
+
+.container{
+visibility:visible;
+width:320px;
+height:480px;
+margin:0;
+padding:0;
+font-family: 'Permanent Marker',arial,serif;
+background:url("images/signin-bg.jpg") no-repeat scroll 0 0;
+position:relative;
+}
+
+.container form{
+  position:relative;
+  top:250px;
+}
+
+.container form input{
+background:#fff;
+border:5px #000 solid;
+padding:8px 10px;
+width:274px;
+margin:5px 8px;
+font-size:22px;
+font-family: 'Permanent Marker',arial,serif;
+}
+
+
 
