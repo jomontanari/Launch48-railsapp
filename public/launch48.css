@@ -178,6 +178,7 @@ ul.guns li {
 ul.gunsweb {
     margin:auto;
     width:420px;
+    background:white;
 }
 ul.gunsweb li {
     float:left;
