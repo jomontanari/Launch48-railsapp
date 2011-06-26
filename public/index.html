@@ -82,9 +82,9 @@
 <div data-role="page" id="login">
 
         Enter your code name:<br /><input id="agent_code_name" type="text" name="agent_code_name"><br />
-        <a class="login" id="login_button" href="javascript:loginOrCreateAgent();">Login</a>
+        <a data-role="button" id="login_button" href="javascript:loginOrCreateAgent();">Login</a>
 
-        <a href="#streetmap"></a>
+        <a href="#streetmap" data-role="button">Map</a>
 </div>
 
 <div id="streetmap" data-role="page">
@@ -99,16 +99,6 @@
 
     $('#streetmap').live("pageshow", function() {
         loadMap();
-    });
-
-    $('#streetmap').live("pagehide", function() {
-        if (navigator.geolocation) {
-            navigator.geolocation.clearWatch(watch);
-        }
-    });
-
-    $('#streetmap').live("pagecreate", function() {
-        var watch;
     });
 
     </script>

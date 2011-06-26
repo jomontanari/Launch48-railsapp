@@ -131,3 +131,9 @@ function loginOrCreateAgent() {
         });
     });
 }
+
+$(document).ready(function() {
+    $("#login_button").live("click", function() {
+        loginOrCreateAgent();
+    });
+});
