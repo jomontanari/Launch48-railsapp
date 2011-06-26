@@ -71,7 +71,6 @@ function drawTargetArea(bearing1, bearing2) {
 
 function rotateTargetArea(bearing) {
     if (bearing < 360) {
-        console.log(bearing);
         drawTargetArea(bearing, bearing + 30);
         currentTimeout = setTimeout('rotateTargetArea(' + (bearing + 5) + ')', 50);
     } else {
@@ -98,18 +97,15 @@ function hit(marker) {
 
 function loadAgents(data) {
     $.each(data, function(key, value) {
-        console.log(value.agent);
         if (value.agent.position && value.agent.id != agent_id) {
             var coords = value.agent.position.split(',');
-            var lat = coords[0].split(":")[0];
-            var lng = coords[1].split(":")[1];
-            console.log("lat", lat, "lng", lng)
+            var latStrings = coords[0].split(":");
+            var lngStrings = coords[1].split(":");
             var icon = (value.status && value.status === "friend") ? "friend" : "enemy";
-            $('#map_canvas_2').gmap('addMarker', { 'title': value.id, 'bound': true, icon: 'images/' + icon + '.png', 'position':new google.maps.LatLng(lat, lng) }, function(map, marker) {
+            $('#map_canvas_2').gmap('addMarker', { 'title': value.id, 'bound': true, icon: 'images/' + icon + '.png', 'position':new google.maps.LatLng(latStrings[1], lngStrings[1]) }, function(map, marker) {
                 $(marker).click(function() {
                     aimAndFire(marker);
                 });
-                map.panTo(marker.getPosition());
             });
         }
     });
