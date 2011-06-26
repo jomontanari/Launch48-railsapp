@@ -52,6 +52,13 @@
         .more {
             text-align: center;
         }
+
+        .street-header {
+            background: url("images/head.png") no-repeat scroll 0 0 transparent;
+            height: 69px;
+            margin: 0 auto;
+            width: 100%;
+        }
     </style>
     <script type="text/javascript">
         google.load("maps", "3", {'other_params':'sensor=true'});
@@ -73,9 +80,18 @@
 
 <body>
 
-<div id="gmap-4" class="" data-role="page">
+<div data-role="page" id="login">
 
-    <div data-role="header">
+    <form>
+    <label for="agent_code_name">Enter your code name:</label><input type="text" name="agent_code_name"><br />
+    <a href="#streetmap">Login</a>
+    </form>
+
+</div>
+
+<div id="streetmap" data-role="page">
+
+    <div class="street-header">
 
         <h1>&nbsp;</h1>
 
@@ -100,7 +116,7 @@
     </script>
     <div class="page" data-role="content" id="map">
 
-        <div id="map_canvas_2" style="height:450px;"></div>
+        <div role="header" id="map_canvas_2" style="height:450px;"></div>
 
         <div class="popup hidden" id="hit">
 
@@ -127,15 +143,6 @@
         </form>
 
     </div>
-
-</div>
-
-<div data-role="page" id="home">
-
-    <form>
-    <label for="agent_code_name">Enter your code name:</label><input type="text" name="agent_code_name"><br />
-    <a href="#map">Login</a>
-    </form>
 
 </div>
 
