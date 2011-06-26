@@ -11,22 +11,22 @@ function loadMap() {
     if (!mapLoaded) {
         if (navigator.geolocation) {
             watch = navigator.geolocation.getCurrentPosition(
-                function(position) {
-                    myPosition = getLatLng(position);
+                    function(position) {
+                        myPosition = getLatLng(position);
 
-                    $('#map_canvas_2').gmap({ 'center': myPosition,'zoom': 14, 'streetViewControl': false, 'mapTypeControl': false, 'navigationControl': false, 'callback': function (map) {
-                        mainMap = map;
-                        $('#map_canvas_2').gmap('clearMarkers');
-                        $('#map_canvas_2').gmap('addMarker', { 'bound': true, icon: 'images/me.png', 'position':new google.maps.LatLng(position.coords.latitude, position.coords.longitude) }, function(map, marker) {
-                            map.panTo(marker.getPosition());
-                            getAgentLocations();
+                        $('#map_canvas_2').gmap({ 'center': myPosition,'zoom': 14, 'streetViewControl': false, 'mapTypeControl': false, 'navigationControl': false, 'callback': function (map) {
+                            mainMap = map;
+                            $('#map_canvas_2').gmap('clearMarkers');
+                            $('#map_canvas_2').gmap('addMarker', { 'bound': true, icon: 'images/me.png', 'position':new google.maps.LatLng(position.coords.latitude, position.coords.longitude) }, function(map, marker) {
+                                map.panTo(marker.getPosition());
+                                getAgentLocations();
+                            });
+                        }
+
                         });
+                        uploadMyPosition(position);
                     }
-
-                    });
-                    uploadMyPosition(position);
-                }
-            );
+                    );
 
             mapLoaded = true;
         }
@@ -35,21 +35,17 @@ function loadMap() {
 }
 
 function uploadMyPosition(position) {
-    positionText = "{lat:" + position.coords.latitude + ",lng:" + position.coords.longitude + "}";
+    positionText = "lat:" + position.coords.latitude + ",lng:" + position.coords.longitude;
     $.ajax({
         url: "http://espionage.heroku.com/agents/" + agent_id,
         type: "POST",
-        data: "_method=put&agent[position]=" + positionText,
-        complete: function(jqXHR, textStatus) {
-            alert(textStatus);
-            console.log(jqXHR)
-        }
+        data: "_method=put&agent[position]=" + positionText
     });
 }
 
 function getAgentLocations() {
     $.ajax({
-        url: "http://espionage.heroku.com/agents.json?callback=?",
+        url: "http://espionage.heroku.com/agents?callback=?",
         dataType: 'json',
         success: loadAgents
     });
@@ -78,8 +74,8 @@ function drawTargetArea(bearing1, bearing2) {
 function rotateTargetArea(bearing) {
     if (bearing < 360) {
         console.log(bearing);
-        drawTargetArea(bearing, bearing+30);
-        currentTimeout = setTimeout('rotateTargetArea(' + (bearing+5) + ')', 50);
+        drawTargetArea(bearing, bearing + 30);
+        currentTimeout = setTimeout('rotateTargetArea(' + (bearing + 5) + ')', 50);
     } else {
         setTimeout('currentTargetArea.setMap(null)')
         weaponPrimed = false;
@@ -104,13 +100,20 @@ function hit(marker) {
 
 function loadAgents(data) {
     $.each(data, function(key, value) {
-        var icon = (value.status === "friend") ? "friend" : "enemy";
-       $('#map_canvas_2').gmap('addMarker', { 'title': value.id, 'bound': true, icon: 'images/' + icon + '.png', 'position':new google.maps.LatLng(value.position.lat, value.position.lng) }, function(map, marker) {
-            $(marker).click(function() {
-                aimAndFire(marker);
+        console.log(value.agent);
+        if (value.agent.position && value.agent.id != agent_id) {
+            var coords = value.agent.position.split(',');
+            var lat = coords[0].split(":")[0];
+            var lng = coords[1].split(":")[1];
+            console.log("lat", lat, "lng", lng)
+            var icon = (value.status && value.status === "friend") ? "friend" : "enemy";
+            $('#map_canvas_2').gmap('addMarker', { 'title': value.id, 'bound': true, icon: 'images/' + icon + '.png', 'position':new google.maps.LatLng(lat, lng) }, function(map, marker) {
+                $(marker).click(function() {
+                    aimAndFire(marker);
+                });
+                map.panTo(marker.getPosition());
             });
-            map.panTo(marker.getPosition());
-       });
+        }
     });
     $("#close").click(function() {
         $("#hit").removeClass("visible").addClass("hidden");
