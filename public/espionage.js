@@ -119,10 +119,11 @@ function getLatLng(position) {
 
 function loginOrCreateAgent() {
     var agentCodeName = $("#agent_code_name").val();
+    alert("hello")
     $.ajax({
         url: "http://localhost:3000/agents",
         type: "POST",
-        data: "agent[code_name]=" + agentCodeName,
+        data: "agent[code_name]=" + agentCodeName
     });
     $.getJSON("http://localhost:3000/agents/find?code_name=" + agentCodeName + "&callback=?", function(data) {
         $.each(data, function(key, value) {
