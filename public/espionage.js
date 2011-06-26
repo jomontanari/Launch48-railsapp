@@ -112,6 +112,7 @@ function rotateTargetArea(bearing, angle, dist) {
 function primeWeapon(marker) {
     clearTimeout(currentTimeout);
     $(".attack-button").removeClass("hidden").addClass("visible");
+    $(".web-attack-button").removeClass("hidden").addClass("visible");
     rotateTargetArea(0, current_weapon.angle, current_weapon.range);
 }
 
@@ -134,6 +135,7 @@ function hit() {
     currentTargetArea.setMap(null);
     weaponPrimed = false;
     $(".attack-button").removeClass("visible").addClass("hidden");    
+    $(".web-attack-button").removeClass("visible").addClass("hidden");    
 }
 
 function loadAgents(data) {
