@@ -6,3 +6,7 @@ require 'rake/dsl_definition'
 require 'rake'
 
 Spyapp::Application.load_tasks
+
+task :web do
+    sh 'cp -r ../../iphone/skyapp/www/* public/'
+end

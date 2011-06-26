@@ -1,0 +1,21 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        function doAjax() {
+            $.ajax({
+                url: "http://smooth-dawn-361.heroku.com/agents",
+                type: "POST",
+                data: "agent[code_name]=Jo&agent[bio]=highly%20trained"
+            });
+        }
+
+
+    </script>
+<a href="javascript:doAjax()">Do Ajax</a>
+
+<br /><br/>
+</body>
+</html>

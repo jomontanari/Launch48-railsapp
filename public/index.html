@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Spy App</title>
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <meta name="keywords" content="Google maps, jQuery, plugin, mobile, iphone, ipad, android, HTML5, Geo search"/>
+    <meta name="description" content="Geo search example with jQuery mobile, Google maps and HTML5"/>
+    <meta http-equiv="content-language" content="en"/>
+
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
+
+    
+    <link rel="stylesheet" href="jquery.mobile-1.0a4.min.css"/>
+    <link rel="stylesheet" href="ui/jquery-ui-1.8.13.css"/>
+    <link rel="stylesheet" href="launch48.css"/>
+
+    <script src="http://www.google.com/jsapi?key=ABQIAAAAahcO7noe62FuOIQacCQQ7RTHkUDJMJAZieEeKAqNDtpKxMhoFxQsdtJdv3FJ1dT3WugUNJb7xD-jsQ" type="text/javascript"></script>
+    
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.8.13.min.js"></script>
+    <script type="text/javascript" src="ui/jquery.ui.map.js"></script>
+    <script type="text/javascript" src="poscalculation.js"></script>
+
+
+    <style rel="stylesheet">
+        body {
+            background: #ddd;
+        }
+
+        .ui-body-c a.ui-link {
+            color: #008595;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        h2 {
+            font-size: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+            display: block;
+        }
+
+        .more {
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        google.load("maps", "3", {'other_params':'sensor=true'});
+        google.load("jquery", "1.5");
+    </script>
+    <script type="text/javascript">
+        // Demonstration purpose only...
+        $(document).bind("mobileinit", function () {
+            $.mobile.ajaxEnabled = true;
+        });
+    </script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.mobile-1.0a4.min.js"></script>
+    <script type="text/javascript" src="ui/jquery.ui.map.js"></script>
+    <script type="text/javascript" src="maps.google.polygon.containsLatLng.js"></script>
+    <script type="text/javascript" src="espionage.js"></script>
+
+</head>
+
+<body>
+
+<div id="gmap-4" class="" data-role="page">
+
+    <div data-role="header">
+
+        <h1>&nbsp;</h1>
+
+    </div>
+
+    <script type="text/javascript">
+
+    $('#gmap-4').live("pageshow", function() {
+        loadMap();
+    });
+
+    $('#gmap-4').live("pagehide", function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.clearWatch(watch);
+        }
+    });
+
+    $('#gmap-4').live("pagecreate", function() {
+        var watch;
+    });
+
+    </script>
+    <div class="page" data-role="content" id="map">
+
+        <div id="map_canvas_2" style="height:450px;"></div>
+
+        <div class="popup hidden" id="hit">
+
+            <h2>HIT!</h2>
+
+            <a href="javascript:void(0)" id="close">Close</a>
+        </div>
+
+
+        
+    </div>
+
+    <div class="weapon-select">
+
+        <form>
+            <fieldset>
+                <div id="radio" class="guns">
+                    <input type="radio" id="radio1" name="radio" checked="checked" /><label for="radio1">Gun 1</label>
+                    <input type="radio" id="radio2" name="radio" /><label for="radio2">Gun 2</label>
+                    <input type="radio" id="radio3" name="radio" /><label for="radio3">Gun 3</label>
+                    <input type="radio" id="radio4" name="radio" /><label for="radio4">Gun 4</label>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+
+</div>
+
+<div data-role="page" id="home">
+
+    <form>
+    <label for="agent_code_name">Enter your code name:</label><input type="text" name="agent_code_name"><br />
+    <a href="#map">Login</a>
+    </form>
+
+</div>
+
+
+</body>
+
+</html>
