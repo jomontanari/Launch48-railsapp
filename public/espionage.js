@@ -10,7 +10,7 @@ var agent_id = null
 function loadMap() {
     if (!mapLoaded) {
         if (navigator.geolocation) {
-            watch = navigator.geolocation.watchPosition(
+            watch = navigator.geolocation.getCurrentPosition(
                 function(position) {
                     myPosition = getLatLng(position);
 
