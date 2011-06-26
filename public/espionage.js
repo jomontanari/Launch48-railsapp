@@ -8,6 +8,27 @@ var agent_code_name = null;
 var agent_id = null;
 var all_markers = [];
 
+var weapons = {
+    knife : {
+        angle : 135,
+        range : 0.3
+    },
+    rifle : {
+        angle : 15,
+        range : 2
+    },
+    grenade : {
+        angle : 90,
+        range : 0.6
+    },
+    gun : {
+        angle : 30,
+        range : 1
+    }
+};
+
+var current_weapon = weapons.gun;
+
 function loadMap() {
     if (!mapLoaded) {
         if (navigator.geolocation) {
@@ -29,16 +50,11 @@ function loadMap() {
                 });
             mapLoaded = true;
         }
-
     }
+    setTimeout("loadMap", 60000);
 }
 
-function refreshPosition() {
-    watch = navigator.geolocation.getCurrentPosition(
-        function(position) {
 
-    });
-}
 
 function checkForAgentID() {
     if (agent_id == null) {
@@ -66,10 +82,10 @@ function getAgentLocations() {
     });
 }
 
-function drawTargetArea(bearing1, bearing2) {
+function drawTargetArea(bearing1, bearing2, dist) {
     if (currentTargetArea) currentTargetArea.setMap(null);
-    var pos1 = getNextLatLon(myPosition.lat(), myPosition.lng(), bearing1);
-    var pos2 = getNextLatLon(myPosition.lat(), myPosition.lng(), bearing2);
+    var pos1 = getNextLatLon(myPosition.lat(), myPosition.lng(), bearing1, dist);
+    var pos2 = getNextLatLon(myPosition.lat(), myPosition.lng(), bearing2, dist);
     var triangleCoords = [
         myPosition,
         new google.maps.LatLng(pos1.latitude, pos1.longitude),
@@ -86,16 +102,17 @@ function drawTargetArea(bearing1, bearing2) {
     currentTargetArea.setMap(mainMap);
 }
 
-function rotateTargetArea(bearing) {
+function rotateTargetArea(bearing, angle, dist) {
+    if (angle == null) angle = 30;
     if (bearing >= 360) bearing = 0;
-    drawTargetArea(bearing, bearing + 30);
-    currentTimeout = setTimeout('rotateTargetArea(' + (bearing + 5) + ')', 50);
+    drawTargetArea(bearing, bearing + angle, dist);
+    currentTimeout = setTimeout('rotateTargetArea(' + (bearing + 5) + ', ' + angle + ')', 50);
 }
 
 function primeWeapon(marker) {
     clearTimeout(currentTimeout);
     $(".attack-button").removeClass("hidden").addClass("visible");
-    rotateTargetArea(0);
+    rotateTargetArea(0, current_weapon.angle, current_weapon.range);
 }
 
 function hit() {
@@ -117,7 +134,7 @@ function hit() {
     }
     currentTargetArea.setMap(null);
     weaponPrimed = false;
-    $(".attack-button").removeClass("hidden").addClass("visible");    
+    $(".attack-button").removeClass("visible").addClass("hidden");    
 }
 
 function loadAgents(data) {

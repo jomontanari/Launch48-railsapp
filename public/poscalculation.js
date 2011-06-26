@@ -30,8 +30,8 @@ LatLon.prototype.lon = function(format, dp) {
     return Geo.toLon(this._lon, format, dp);
 }
 
-function getNextLatLon(lat1, lon1, brng) {
-    var dist = 1;
+function getNextLatLon(lat1, lon1, brng, dist) {
+    if (dist == null) dist = 1;
     var p1 = new LatLon(lat1, lon1);
     var p2 = p1.destinationPoint(brng, dist);
     lat2 = p2.lat()
