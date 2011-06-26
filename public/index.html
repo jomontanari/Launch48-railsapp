@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="jquery.mobile-1.0a4.min.css"/>
     <link rel="stylesheet" href="ui/jquery-ui-1.8.13.css"/>
     <link rel="stylesheet" href="launch48.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Permanent+Marker&v1' rel='stylesheet' type='text/css'>
 
     <script src="http://www.google.com/jsapi?key=ABQIAAAAahcO7noe62FuOIQacCQQ7RTHkUDJMJAZieEeKAqNDtpKxMhoFxQsdtJdv3FJ1dT3WugUNJb7xD-jsQ" type="text/javascript"></script>
     
@@ -59,6 +60,15 @@
             margin: 0 auto;
             width: 100%;
         }
+        
+        #map{
+            height:320px;
+        }
+
+        #login_button .ui-btn-text {
+            visibility: visible;
+            font-family: 'Permanent Marker',arial,serif;
+        }
     </style>
     <script type="text/javascript">
         google.load("maps", "3", {'other_params':'sensor=true'});
@@ -81,10 +91,13 @@
 
 <div data-role="page" id="login">
 
-        Enter your code name:<br /><input id="agent_code_name" type="text" name="agent_code_name"><br />
-        <a data-role="button" id="login_button">Login</a>
+    <form>
+        <label class="hidden" for="agent_code_name">Enter your code name:</label><br /><input id="agent_code_name" type="text" name="agent_code_name" placeholder="Codename"><br />
+        <a data-role="button" id="login_button">GO!</a>
 
-    </div>
+    </form>
+
+</div>
 
 <div id="streetmap" data-role="page">
 
