@@ -137,4 +137,7 @@ $(document).ready(function() {
     $("#login_button").live("tap", function() {
         loginOrCreateAgent();
     });
+    $("#login_button").live("click", function() {
+        loginOrCreateAgent();
+    });
 });
