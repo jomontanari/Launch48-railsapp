@@ -11,23 +11,21 @@ function loadMap() {
     if (!mapLoaded) {
         if (navigator.geolocation) {
             watch = navigator.geolocation.getCurrentPosition(
-                    function(position) {
-                        myPosition = getLatLng(position);
+                function(position) {
+                    uploadMyPosition(position);
+                    myPosition = getLatLng(position);
 
-                        $('#map_canvas_2').gmap({ 'center': myPosition,'zoom': 14, 'streetViewControl': false, 'mapTypeControl': false, 'navigationControl': false, 'callback': function (map) {
-                            mainMap = map;
-                            $('#map_canvas_2').gmap('clearMarkers');
-                            $('#map_canvas_2').gmap('addMarker', { 'bound': true, icon: 'images/me.png', 'position':new google.maps.LatLng(position.coords.latitude, position.coords.longitude) }, function(map, marker) {
-                                map.panTo(marker.getPosition());
-                                getAgentLocations();
-                            });
-                        }
-
+                    $('#map_canvas_2').gmap({ 'center': myPosition,'zoom': 14, 'streetViewControl': false, 'mapTypeControl': false, 'navigationControl': false, 'callback': function (map) {
+                        mainMap = map;
+                        $('#map_canvas_2').gmap('clearMarkers');
+                        $('#map_canvas_2').gmap('addMarker', { 'bound': true, icon: 'images/me.png', 'position':new google.maps.LatLng(position.coords.latitude, position.coords.longitude) }, function(map, marker) {
+                            map.panTo(marker.getPosition());
+                            getAgentLocations();
                         });
-                        uploadMyPosition(position);
                     }
-                    );
 
+                    });
+                });
             mapLoaded = true;
         }
 
