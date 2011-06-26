@@ -33,6 +33,13 @@ function loadMap() {
     }
 }
 
+function refreshPosition() {
+    watch = navigator.geolocation.getCurrentPosition(
+        function(position) {
+
+    });
+}
+
 function checkForAgentID() {
     if (agent_id == null) {
         $.mobile.changePage("login")
@@ -88,7 +95,7 @@ function rotateTargetArea(bearing) {
 function primeWeapon(marker) {
     clearTimeout(currentTimeout);
     $(".attack-button").removeClass("hidden").addClass("visible");
-    rotateTargetArea(0)
+    rotateTargetArea(0);
 }
 
 function hit() {
