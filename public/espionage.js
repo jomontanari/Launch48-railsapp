@@ -248,8 +248,8 @@ $(document).ready(function() {
 });
 
 function removeBloodSplat() {
-    $("#set_handgun").removeClass("bloodsplat");
-    $("#set_knife").removeClass("bloodsplat");
-    $("#set_ak47").removeClass("bloodsplat");
-    $("#set_grenade").removeClass("bloodsplat");
+    $("#set_handgun").removeClass("bloodsplat").css("background", "white");
+    $("#set_knife").removeClass("bloodsplat").css("background", "white");
+    $("#set_ak47").removeClass("bloodsplat").css("background", "white");
+    $("#set_grenade").removeClass("bloodsplat").css("background", "white");
 }
