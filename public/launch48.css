@@ -45,10 +45,6 @@ float:left;
   z-index: 29;
 }
 
-.agent{
-left:
-}
-
 .me a{
 padding:14px;
 display:block;
@@ -79,10 +75,24 @@ display:none;
   z-index: 30;
 }
 
+.webpopup {
+    left:200px;
+}
+
+
 #miss{
   background: url("images/miss.png") no-repeat scroll 50px 70px transparent;
   font-family: 'Permanent Marker',arial,serif;
   left: 0pt;
+  position: absolute;
+  top: 80px;
+  z-index: 30;
+}
+
+#webmiss{
+  background: url("images/miss.png") no-repeat scroll 50px 70px transparent;
+  font-family: 'Permanent Marker',arial,serif;
+  left: 300px;
   position: absolute;
   top: 80px;
   z-index: 30;
@@ -97,7 +107,7 @@ display:none;
   margin-left:20px;
 }
 
-#miss h2{
+#miss h2, #webmiss h2{
   font-size:30pt;
   height:400px;
   line-height:210pt;

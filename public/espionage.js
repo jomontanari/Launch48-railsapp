@@ -128,9 +128,11 @@ function hit() {
 
     if (hits.length > 0) {
         $("#hit").removeClass("hidden").addClass("visible");
+        $("#webhit").removeClass("hidden").addClass("visible");
     }
     else {
         $("#miss").removeClass("hidden").addClass("visible");
+        $("#webmiss").removeClass("hidden").addClass("visible");
     }
     currentTargetArea.setMap(null);
     weaponPrimed = false;
@@ -158,9 +160,11 @@ function loadAgents(data) {
     });
     $("#close").click(function() {
         $("#hit").removeClass("visible").addClass("hidden");
+        $("#webhit").removeClass("visible").addClass("hidden");
     });
     $("#closemiss").click(function() {
         $("#miss").removeClass("visible").addClass("hidden");
+        $("#webmiss").removeClass("visible").addClass("hidden");
     });
 }
 
@@ -244,6 +248,9 @@ $(document).ready(function() {
         current_weapon = weapons.grenade;
         removeBloodSplat();
         $("#set_grenade").addClass("bloodsplat");
+    });
+    $("#publishhit").click(function() {
+       publishToFacebook("")
     });
 });
 

@@ -35,7 +35,7 @@
         .container{
             background:url("images/Webpagebackground.gif") no-repeat scroll 0 0;
             width:900px;
-            margin:0 auto;
+            margin:auto;
             min-height:900px;
         }
 
@@ -154,23 +154,25 @@
 
 <body>
 
-<div data-role="page" id="login" data-transition="slide" style="background:url('images/weblogin.png');width:900px">
+<div data-role="page" id="login" data-transition="slide" style="background:url('images/weblogin.png');width:900px;text-align:center;margin:auto;padding-top:200px">
 
-    <form>
-        <label class="hidden" for="agent_code_name">Enter your code name:</label><br /><input id="agent_code_name" type="text" name="agent_code_name" placeholder="Codename"><br />
-        <a data-role="button" id="login_button">GO!</a>
+    <div style="width:300px;margin:auto">
+        <form>
+            <label class="hidden" for="agent_code_name">Enter your code name:</label><br /><input id="agent_code_name" type="text" name="agent_code_name" placeholder="Codename"><br />
+            <a data-role="button" id="login_button">GO!</a>
 
-    </form>
+        </form>
+        </div>
 
 </div>
 
-<div id="streetmap" data-role="page" data-transition="slide" class="container" style="width:900px;margin:0 auto">
+<div id="streetmap" data-role="page" data-transition="slide" class="container" style="width:900px;margin:auto;position:relative">
 
 
     <div class="header">
         <a href="#"><h1>Espionage</h1></a>
 
-        <h4>Meanwhile</h4>
+        <h4 style="font-family:'Permanent Marker',arial,serif;">Meanwhile on the streets ...</h4>
     </div>
 
     <script type="text/javascript">
@@ -186,14 +188,15 @@
 
         <div role="header" id="map_canvas_2" style="height:450px;"></div>
 
-        <div class="popup hidden" id="hit">
+        <div class="popup hidden webpopup" id="hit" style="margin:auto">
 
             <h2>HIT!</h2>
 
             <a href="javascript:void(0)" id="close">Close</a>
+
         </div>
 
-        <div class="hidden" id="miss">
+        <div class="hidden popup webpopup" id="webmiss" style="margin:auto">
 
             <h2>MISS!</h2>
 
@@ -209,13 +212,13 @@
 
 
         <ul class="gunsweb">
-            <li id="set_handgun" class="bloodsplat"><img src="images/handgun.png"></li>
+            <li id="set_handgun" class="bloodsplat unselected"><img src="images/handgun.png"></li>
             <li id="set_grenade" class="unselected"><img src="images/grenade.png"></li>
             <li id="set_ak47" class="unselected"><img src="images/ak47.png"></li>
             <li id="set_knife" class="unselected"><img src="images/knife.png"></li>
         </ul>
 
-        <div class="web-attack-button hidden">
+        <div class="web-attack-button hidden" style="margin:auto;width:300px">
 
             <a href="javascript:void(0)" id="attack_button"><img src="images/attackbutton.png"></a>
 
