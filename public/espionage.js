@@ -90,7 +90,7 @@ function hit(marker) {
         $("#hit").removeClass("hidden").addClass("visible");
     }
     else {
-        alert("miss");
+        $("#miss").removeClass("hidden").addClass("visible");
     }
     currentTargetArea.setMap(null);
 }
