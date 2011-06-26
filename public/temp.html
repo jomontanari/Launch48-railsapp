@@ -4,49 +4,13 @@
 </head>
 <body>
     <script type="text/javascript">
-        function doAjax() {
-            $.ajax({
-                url: "http://localhost:3000/agents.json",
-                type: "POST",
-                data: "agent[code_name]=Jo",
-                complete: function(jqXHR, textStatus) {
-                    alert(textStatus);
-                    console.log(jqXHR)
-                }
-            });
+        function isUpdatedWithinLastTenMinutes(lastUpdatedDateString) {
+            var endDate = new Date();
+            alert(endDate);
         }
-
-         function doJson() {
-            $.ajax({
-                url: "http://localhost:3000/agents?callback=?",
-                dataType: 'json',
-                success: loadAgents
-            });
-        }
-
-
-        function uploadMyPosition(position) {
-            positionText = "{lat:" + position.coords.latitude + ",lng:" + position.coords.longitude + "}";
-            $.ajax({
-                url: "http://espionage.heroku.com/agents/" + agent_id,
-                type: "POST",
-                data: "_method=put&agent[position]=" + positionText,
-                complete: function(jqXHR, textStatus) {
-                    alert(textStatus);
-                    console.log(jqXHR)
-                }
-            });
-        }
-
-        function loadAgents(data) {
-            alert("hello")
-            console.log(data)
-        }
-
     </script>
-<a href="javascript:uploadMyPosition({coords :{latitude: 10, longitude: 10}})">Do Upload</a>
+<a href="javascript:isUpdatedWithinLastTenMinutes()">Do Upload</a>
     <br /><br/>
-<a href="javascript:doJson()">Do Json</a>
 
 <br /><br/>
 </body>

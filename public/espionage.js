@@ -123,6 +123,11 @@ function loadAgents(data) {
     });
 }
 
+function isUpdatedWithinLastTenMinutes() {
+    var endDate = new Date();
+        alert(endDate);
+}
+
 function aimAndFire(marker) {
     if (!weaponPrimed) {
         primeWeapon(marker);
