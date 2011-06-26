@@ -227,29 +227,29 @@ $(document).ready(function() {
     $("#set_handgun").click(function() {
         current_weapon = weapons.gun;
         removeBloodSplat();
-        $("#set_handgun").addClass("bloodsplat").removeClass("unselected");
+        $("#set_handgun").addClass("bloodsplat");
     });
     $("#set_knife").click(function() {
         current_weapon = weapons.knife;
         removeBloodSplat();
-        $("#set_knife").addClass("bloodsplat").removeClass("unselected");
+        $("#set_knife").addClass("bloodsplat");
     });
     $("#set_ak47").click(function() {
         current_weapon = weapons.rifle;
         removeBloodSplat();
-        $("#set_ak47").addClass("bloodsplat").removeClass("unselected");
+        $("#set_ak47").addClass("bloodsplat");
 
     });
     $("#set_grenade").click(function() {
         current_weapon = weapons.grenade;
         removeBloodSplat();
-        $("#set_grenade").addClass("bloodsplat").removeClass("unselected");
+        $("#set_grenade").addClass("bloodsplat");
     });
 });
 
 function removeBloodSplat() {
-    $("#set_handgun").removeClass("bloodsplat").addClass("unselected");
-    $("#set_knife").removeClass("bloodsplat").addClass("unselected");
-    $("#set_ak47").removeClass("bloodsplat").addClass("unselected");
-    $("#set_grenade").removeClass("bloodsplat").addClass("unselected");
+    $("#set_handgun").removeClass("bloodsplat");
+    $("#set_knife").removeClass("bloodsplat");
+    $("#set_ak47").removeClass("bloodsplat");
+    $("#set_grenade").removeClass("bloodsplat");
 }
