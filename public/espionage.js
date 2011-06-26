@@ -106,16 +106,18 @@ function hit(marker) {
 
 function loadAgents(data) {
     $.each(data, function(key, value) {
-        if (value.agent.position && value.agent.id != agent_id) {
-            var coords = value.agent.position.split(',');
-            var latStrings = coords[0].split(":");
-            var lngStrings = coords[1].split(":");
-            var icon = (value.status && value.status === "friend") ? "friend" : "enemy";
-            $('#map_canvas_2').gmap('addMarker', { 'title': value.id, 'bound': true, icon: 'images/' + icon + '.png', 'position':new google.maps.LatLng(latStrings[1], lngStrings[1]) }, function(map, marker) {
-                $(marker).click(function() {
-                    aimAndFire(marker);
+        if (value.agent.updated_at && isUpdatedWithinLastTenMinutes(value.agent.updated_at)) {
+            if (value.agent.position && value.agent.id != agent_id) {
+                var coords = value.agent.position.split(',');
+                var latStrings = coords[0].split(":");
+                var lngStrings = coords[1].split(":");
+                var icon = (value.status && value.status === "friend") ? "friend" : "enemy";
+                $('#map_canvas_2').gmap('addMarker', { 'title': value.id, 'bound': true, icon: 'images/' + icon + '.png', 'position':new google.maps.LatLng(latStrings[1], lngStrings[1]) }, function(map, marker) {
+                    $(marker).click(function() {
+                        aimAndFire(marker);
+                    });
                 });
-            });
+            }
         }
     });
     $("#close").click(function() {
@@ -123,9 +125,15 @@ function loadAgents(data) {
     });
 }
 
-function isUpdatedWithinLastTenMinutes() {
+function isUpdatedWithinLastTenMinutes(lastUpdatedDateString) {
     var endDate = new Date();
-        alert(endDate);
+    var startDate = new Date(lastUpdatedDateString);
+    var difference = (endDate - startDate);
+    if (difference > 4200000) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 function aimAndFire(marker) {

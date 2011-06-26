@@ -6,10 +6,24 @@
     <script type="text/javascript">
         function isUpdatedWithinLastTenMinutes(lastUpdatedDateString) {
             var endDate = new Date();
-            alert(endDate);
+            var startDate = new Date("2011-06-26T12:41:20Z");
+            var difference = (endDate - startDate);
+            if (difference > 4200000) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function alertIt() {
+            if (isUpdatedWithinLastTenMinutes) {
+                alert("recent")
+            } else {
+                alert("old")
+            }
         }
     </script>
-<a href="javascript:isUpdatedWithinLastTenMinutes()">Do Upload</a>
+<a href="javascript:alertIt()">Do Upload</a>
     <br /><br/>
 
 <br /><br/>
