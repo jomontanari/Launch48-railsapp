@@ -63,8 +63,7 @@
     <script type="text/javascript">
         google.load("maps", "3", {'other_params':'sensor=true'});
         google.load("jquery", "1.5");
-    </script>
-    <script type="text/javascript">
+
         // Demonstration purpose only...
         $(document).bind("mobileinit", function () {
             $.mobile.ajaxEnabled = true;
@@ -83,8 +82,8 @@
 <div data-role="page" id="login">
 
     <form>
-    <label for="agent_code_name">Enter your code name:</label><input type="text" name="agent_code_name"><br />
-    <a href="#streetmap">Login</a>
+        <label for="agent_code_name">Enter your code name:</label><br /><input id="agent_code_name" type="text" name="agent_code_name"><br />
+        <a class="login" id="login_button">Login</a>
     </form>
 
 </div>
@@ -99,17 +98,17 @@
 
     <script type="text/javascript">
 
-    $('#gmap-4').live("pageshow", function() {
+    $('#streetmap').live("pageshow", function() {
         loadMap();
     });
 
-    $('#gmap-4').live("pagehide", function() {
+    $('#streetmap').live("pagehide", function() {
         if (navigator.geolocation) {
             navigator.geolocation.clearWatch(watch);
         }
     });
 
-    $('#gmap-4').live("pagecreate", function() {
+    $('#streetmap').live("pagecreate", function() {
         var watch;
     });
 

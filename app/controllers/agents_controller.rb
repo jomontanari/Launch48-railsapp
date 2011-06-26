@@ -17,7 +17,7 @@ class AgentsController < ApplicationController
     @agent = Agent.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :json => @agent }
       format.xml  { render :xml => @agent }
     end
   end
@@ -45,8 +45,10 @@ class AgentsController < ApplicationController
 
     respond_to do |format|
       if @agent.save
-        format.html { redirect_to(@agent, :notice => 'Agent was successfully created.') }
+        format.html { render :notice => "created", :status => :created }
+        #format.html { #redirect_to(@agent, :notice => 'Agent was successfully created.') }
         format.xml  { render :xml => @agent, :status => :created, :location => @agent }
+        format.json { render :json => @items.to_json, :callback => params[:callback]}
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @agent.errors, :status => :unprocessable_entity }
@@ -61,7 +63,7 @@ class AgentsController < ApplicationController
 
     respond_to do |format|
       if @agent.update_attributes(params[:agent])
-        format.html { redirect_to(@agent, :notice => 'Agent was successfully updated.') }
+        format.html { Agent.find(params[:id]) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -79,6 +81,16 @@ class AgentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(agents_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  # GET /agents/find
+  def find
+    @matches = Agent.find_by_sql ["SELECT id, code_name FROM agents WHERE code_name = ?", params[:code_name] ]
+
+    @matches.each do | match |
+        @agent = Agent.find(match.id)
+        render :json => @agent.to_json, :callback => params[:callback]
     end
   end
 end

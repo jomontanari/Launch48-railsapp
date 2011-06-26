@@ -6,15 +6,34 @@
     <script type="text/javascript">
         function doAjax() {
             $.ajax({
-                url: "http://smooth-dawn-361.heroku.com/agents",
+                url: "http://localhost:3000/agents.json",
                 type: "POST",
-                data: "agent[code_name]=Jo&agent[bio]=highly%20trained"
+                data: "agent[code_name]=Jo",
+                complete: function(jqXHR, textStatus) {
+                    alert(textStatus);
+                    console.log(jqXHR)
+                }
+            });
+        }
+
+         function doJson() {
+            $.ajax({
+                dataType: 'json',
+                url: "/agents",
+                type: "POST",
+                data: "agent[code_name]=abc",                
+                complete: function(jqXHR, textStatus) {
+                    alert(textStatus);
+                    console.log(jqXHR)
+                }
             });
         }
 
 
     </script>
 <a href="javascript:doAjax()">Do Ajax</a>
+    <br /><br/>
+<a href="javascript:doJson()">Do Json</a>
 
 <br /><br/>
 </body>

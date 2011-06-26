@@ -4,6 +4,8 @@ var mainMap = null;
 var currentTargetArea = null;
 var currentTimeout = null;
 var weaponPrimed = false;
+var agent_code_name = null;
+var agent_id = null
 
 function loadMap() {
     if (!mapLoaded) {
@@ -22,7 +24,7 @@ function loadMap() {
                     }
                     });
                 }
-            )
+            );
 
             mapLoaded = true;
         }
@@ -114,3 +116,24 @@ function aimAndFire(marker) {
 function getLatLng(position) {
     return new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 }
+
+function loginOrCreateAgent() {
+    var agentCodeName = $("#agent_code_name").val();
+    $.ajax({
+        url: "http://localhost:3000/agents",
+        type: "POST",
+        data: "agent[code_name]=" + agentCodeName,
+    });
+    $.getJSON("http://localhost:3000/agents/find?code_name=" + agentCodeName + "&callback=?", function(data) {
+        $.each(data, function(key, value) {
+            agent_id = value.id;
+            $.mobile.changePage("streetmap");
+        });
+    });
+}
+
+$(document).ready(function() {
+    $("#login_button").click(function() {
+        loginOrCreateAgent();
+    });
+});
