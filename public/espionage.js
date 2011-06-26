@@ -213,13 +213,15 @@ $(document).ready(function() {
     $("#attack_button").live("click", function() {
         hit();
     });
-    $("#reset_button").live("click", function() {
-        alert("test")
-        loadMap();
+    $("#web-attack_button").live("tap", function() {
+        hit();
     });
-    $("#reset_button").live("tap", loadMap);
-
-
+    $("#web-attack_button").live("click", function() {
+        hit();
+    });
+    $("#reset_button").live("click", function() {
+        mainMap.setCenter(myPosition);
+    });
     $("#set_handgun").click(function() {
         current_weapon = weapons.gun;
         removeBloodSplat();

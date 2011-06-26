@@ -81,6 +81,11 @@
             z-index:900;
         }
 
+        .web-attack-button {
+            width:100%;
+            text-align:center
+        }
+
         .bloodsplat {
             background:url('images/splat.png') no-repeat scroll 0 0 #fff;
         }
@@ -118,7 +123,7 @@
 
     <div class="street-header">
 
-        <a id="reset_button"><img src="images/head.png"></a>
+        <img src="images/head.png" id="reset_button">
 
     </div>
 
@@ -155,18 +160,20 @@
 
     <div class="weapon-select">
 
-        <div class="attack-button hidden">
 
-            <a href="javascript:void(0)" id="attack_button"><img src="images/attackbutton.png"></a>
 
-        </div>
-
-        <ul class="guns">
+        <ul class="gunsweb">
             <li id="set_handgun" class="bloodsplat"><img src="images/handgun.png"></li>
             <li id="set_grenade"><img src="images/grenade.png"></li>
             <li id="set_ak47"><img src="images/ak47.png"></li>
             <li id="set_knife"><img src="images/knife.png"></li>
         </ul>
+
+        <div class="web-attack-button hidden">
+
+            <a href="javascript:void(0)" id="attack_button"><img src="images/attackbutton.png"></a>
+
+        </div>
 
     </div>
 
