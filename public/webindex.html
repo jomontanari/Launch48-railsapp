@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>ESPIONAGE!</title>
+    <title>Spy App</title>
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
     <meta name="keywords" content="Google maps, jQuery, plugin, mobile, iphone, ipad, android, HTML5, Geo search"/>
     <meta name="description" content="Geo search example with jQuery mobile, Google maps and HTML5"/>
@@ -55,34 +55,19 @@
         }
 
         .street-header {
+            background: url("images/head.png") no-repeat scroll 0 0 transparent;
             height: 69px;
             margin: 0 auto;
             width: 100%;
         }
-
-        .street-header h1 a {
-            height: 69px;
-            margin: 0 auto;
-            width: 100%;   
-        }
         
         #map{
-            height:290px;
+            height:320px;
         }
 
         #login_button .ui-btn-text {
             visibility: visible;
             font-family: 'Permanent Marker',arial,serif;
-        }
-
-        .attack-button {
-            float:left;
-            position:absolute;
-            z-index:900;
-        }
-
-        .bloodsplat {
-            background:url('images/splat.png') no-repeat scroll 0 0 #fff;
         }
     </style>
     <script type="text/javascript">
@@ -104,7 +89,7 @@
 
 <body>
 
-<div data-role="page" id="login" data-transition="slide">
+<div data-role="page" id="login">
 
     <form>
         <label class="hidden" for="agent_code_name">Enter your code name:</label><br /><input id="agent_code_name" type="text" name="agent_code_name" placeholder="Codename"><br />
@@ -114,20 +99,18 @@
 
 </div>
 
-<div id="streetmap" data-role="page" data-transition="slide">
+<div id="streetmap" data-role="page">
 
     <div class="street-header">
 
-        <a id="reset_button"><img src="images/head.png"></a>
+        <h1>&nbsp;</h1>
 
     </div>
 
     <script type="text/javascript">
 
     $('#streetmap').live("pageshow", function() {
-        if (checkForAgentID()) {
-            loadMap();
-        }
+        loadMap();
     });
 
     </script>
@@ -155,21 +138,19 @@
 
     <div class="weapon-select">
 
-        <div class="attack-button hidden">
-
-            <a href="javascript:void(0)" id="attack_button"><img src="images/attackbutton.png"></a>
-
-        </div>
-
-        <ul class="guns">
-            <li id="set_handgun" class="bloodsplat"><img src="images/handgun.png"></li>
-            <li id="set_grenade"><img src="images/grenade.png"></li>
-            <li id="set_ak47"><img src="images/ak47.png"></li>
-            <li id="set_knife"><img src="images/knife.png"></li>
-        </ul>
+        <form>
+            <fieldset>
+                <div id="radio" class="guns">
+                    
+                        <input type="radio" id="radio1" name="radio" checked="checked" /><label for="radio1">Gun 1</label>
+                        <input type="radio" id="radio2" name="radio" /><label for="radio2">Gun 2</label>
+                        <input type="radio" id="radio3" name="radio" /><label for="radio3">Gun 3</label>
+                        <input type="radio" id="radio4" name="radio" /><label for="radio4">Gun 4</label>
+                </div>
+            </fieldset>
+        </form>
 
     </div>
-
 
 </div>
 
