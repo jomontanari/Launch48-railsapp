@@ -79,6 +79,15 @@ display:none;
   z-index: 30;
 }
 
+#miss{
+  background: url("images/miss.png") no-repeat scroll 50px 70px transparent;
+  font-family: 'Permanent Marker',arial,serif;
+  left: 0pt;
+  position: absolute;
+  top: 80px;
+  z-index: 30;
+}
+
 .popup h2{
   font-size:30pt;
   height:400px;
@@ -88,10 +97,26 @@ display:none;
   margin-left:20px;
 }
 
+#miss h2{
+  font-size:30pt;
+  height:400px;
+  line-height:210pt;
+  text-align:center;
+  width:300px;
+  margin-left:0px;
+}
+
 #close{
   position:absolute;
   top:176px;
   right:97px;
+}
+
+#closemiss{
+  position:absolute;
+  top:206px;
+  left:170px;
+  
 }
 
 .weapon-select form .guns radio{
