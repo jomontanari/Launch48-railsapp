@@ -133,7 +133,7 @@ function loginOrCreateAgent() {
 }
 
 $(document).ready(function() {
-    $("#login_button").live("click", function() {
+    $("#login_button").live("tap", function() {
         loginOrCreateAgent();
     });
 });
